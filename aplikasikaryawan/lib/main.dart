@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:aplikasikaryawan/models/karyawan.dart';
 import 'package:flutter/services.dart';
@@ -13,24 +12,24 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
-        useMaterial3: true),
-      home: const MyHomePage()
-    );
+    return MaterialApp(
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+            colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
+            useMaterial3: true),
+        home: const MyHomePage());
   }
 }
 
-
 class MyHomePage extends StatelessWidget {
   const MyHomePage({super.key});
-Future<List<Karyawan>> readJsonData() async{
-  final String response = await rootBundle.loadString('assets/karyawan.json');
-  final List<dynamic> data = jsonDecode(response);
-  return data.map((json) => Karyawan.fromJson(json)).toList();
-}
+
+  Future<List<Karyawan>> _readJsonData() async {
+    final String response = await rootBundle.loadString('assets/karyawan.json');
+    final List<dynamic> data = json.decode(response);
+    return data.map((json) => Karyawan.fromJson(json)).toList();
+  }
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
