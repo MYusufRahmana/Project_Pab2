@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 class ApiService {
-  static const String baseUrl = "https://api.themoviedb.or/3";
+  static const String baseUrl = "https://api.themoviedb.org/3"; // Perubahan di sini
   static const String apiKey = "4b6e92905a8bb7ecae78e1fc7ffa76b1";
 
   Future<List<Map<String, dynamic>>> getAllMovies () async { 
@@ -10,15 +10,16 @@ class ApiService {
     final data = json.decode(response.body);
     return List<Map<String, dynamic>>.from(data['results']);
   }
-   Future<List<Map<String, dynamic>>> getTrendingMovies () async { 
+
+  Future<List<Map<String, dynamic>>> getTrendingMovies () async { 
     final response = await http.get(Uri.parse("$baseUrl/trending/movie/week?api_key=$apiKey"));
     final data = json.decode(response.body);
     return List<Map<String, dynamic>>.from(data['results']);
-   }
+  }
 
-   Future<List<Map<String, dynamic>>> getPopularMovies () async { 
+  Future<List<Map<String, dynamic>>> getPopularMovies () async { 
     final response = await http.get(Uri.parse("$baseUrl/movie/popular?api_key=$apiKey"));
     final data = json.decode(response.body);
     return List<Map<String, dynamic>>.from(data['results']);
-   }
+  }
 }
