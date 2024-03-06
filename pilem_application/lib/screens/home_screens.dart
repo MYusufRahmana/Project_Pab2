@@ -43,7 +43,7 @@ class HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Pilem'),
+        title: const Text('Application Filem'),
       ),
       body: SingleChildScrollView(
         child: Column(
