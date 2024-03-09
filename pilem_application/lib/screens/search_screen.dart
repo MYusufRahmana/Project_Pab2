@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pilem_application/screens/detail_screens.dart';
 import 'package:pilem_application/services/api_service.dart';
 import 'package:pilem_application/models/movie.dart';
 
@@ -79,28 +80,43 @@ class _SearchScreenState extends State<SearchScreen> {
                 ],
               ),
             ),
-            const SizedBox(
-              height: 16,
-            ),
+           const SizedBox(height: 16),
             Expanded(
-                child: ListView.builder(
-              itemCount: _searchResult.length,
-              itemBuilder: (context, index) {
-                final Movie movie = _searchResult[index];
+              child: GridView.builder(
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2, // Jumlah kolom
+                  crossAxisSpacing: 16.0, // Spasi horizontal antar elemen
+                  mainAxisSpacing: 16.0, // Spasi vertikal antar elemen
+                ),
+                itemCount: _searchResult.length,
+                itemBuilder: (context, index) {
+                  final Movie movie = _searchResult[index];
 
-                return Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 4),
-                  child: ListTile(
-                    leading: Image.network(
-                      'https://image.tmdb.org/t/p/w500${movie.posterPath}',
-                      height: 50,
-                      width: 50,
-                      fit: BoxFit.cover,
+                  return Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 4),
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => DetailScreen(movie: movie),
+                          ),
+                        );
+                      },
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(8.0),
+                        child: Image.network(
+                          movie.posterPath != ''
+                              ? 'https://image.tmdb.org/t/p/w500${movie.posterPath}'
+                              : 'https://via.placeholder.com/300x450.png?text=No+Image',
+                          fit: BoxFit.cover,
+                        ),
+                      ),
                     ),
-                  ),
-                );
-              },
-            ))
+                  );
+                },
+              ),
+            ),
           ],
         ),
       ),
