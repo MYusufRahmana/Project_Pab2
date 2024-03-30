@@ -1,8 +1,5 @@
 import 'package:firebase_database/firebase_database.dart';
-import 'package:flutter/widgets.dart';
-
-
-
+import 'package:flutter/material.dart';
 
 class ShoppingService {
   final DatabaseReference _database =
@@ -24,14 +21,18 @@ class ShoppingService {
     });
   }
 
-  //TODO 2: Bikin method untuk add shopping list
-  void addShoppingItem(String itemName){
-    _database.push().set({'name': itemName});
+  //TODO 2: Bikin method untuk add shopping item
+  void addShoppingItem(String itemName, BuildContext context) {
+    if (itemName.isEmpty) {
+      const warning = SnackBar(content: Text('Item Belanja Kosong!'));
+      ScaffoldMessenger.of(context).showSnackBar(warning);
+    } else {
+      _database.push().set({'name': itemName});
+    }
   }
 
-  //TODO 3: Bikin method untuk remove shopping list
-
-  Future<void> removeShoppingItem(String key) async{
-     await _database.child(key).remove();
+  //TODO 3: Bikin method untuk remove shopping item
+  Future<void> removeShoppingItem(String key) async {
+    await _database.child(key).remove();
   }
 }
