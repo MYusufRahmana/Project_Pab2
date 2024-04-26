@@ -8,7 +8,8 @@ class ShoppingInputScreen extends StatefulWidget {
   _ShoppingInputScreenState createState() => _ShoppingInputScreenState();
 }
 
-class _ShoppingInputScreenState extends State {
+class _ShoppingInputScreenState extends State
+ {
   final TextEditingController _itemNameController =
       TextEditingController(); // Controller untuk nama barang
   final TextEditingController _itemTypeController =
@@ -37,18 +38,39 @@ class _ShoppingInputScreenState extends State {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            TextField(
-              controller: _itemNameController,
-              decoration: const InputDecoration(
-                labelText: 'Nama Barang',
-                hintText: 'Masukkan nama barang',
+            // Nama Barang
+            Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10), // Bentuk oval
+                color: Colors.grey[200], // Warna latar belakang
+              ),
+              child: TextField(
+                controller: _itemNameController,
+                decoration: const InputDecoration(
+                  labelText: 'Nama Barang',
+                  hintText: 'Masukkan nama barang',
+                  contentPadding:
+                      EdgeInsets.symmetric(horizontal: 16), // Padding teks dalam kotak input
+                  border: InputBorder.none, // Hilangkan garis tepi input
+                ),
               ),
             ),
-            TextField(
-              controller: _itemTypeController,
-              decoration: const InputDecoration(
-                labelText: 'Tipe Barang',
-                hintText: 'Masukkan tipe barang',
+            const SizedBox(height: 16), // Spasi antar input
+            // Tipe Barang
+            Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10), // Bentuk oval
+                color: Colors.grey[200], // Warna latar belakang
+              ),
+              child: TextField(
+                controller: _itemTypeController,
+                decoration: const InputDecoration(
+                  labelText: 'Tipe Barang',
+                  hintText: 'Masukkan tipe barang',
+                  contentPadding:
+                      EdgeInsets.symmetric(horizontal: 16), // Padding teks dalam kotak input
+                  border: InputBorder.none, // Hilangkan garis tepi input
+                ),
               ),
             ),
             const SizedBox(height: 16),
@@ -56,12 +78,10 @@ class _ShoppingInputScreenState extends State {
               onPressed: () {
                 final String itemName = _itemNameController.text;
                 final String itemType = _itemTypeController.text;
-                _shoppingService.addShoppingItem(itemName, itemType,
-                    context); // Panggil method addShoppingItem dari ShoppingService
+                _shoppingService.addShoppingItem(itemName, itemType, context);
                 _itemNameController.clear();
                 _itemTypeController.clear();
-                _showSuccessMessage(
-                    context); // Panggil method untuk menampilkan pesan berhasil
+                _showSuccessMessage(context);
               },
               child: const Text('Tambahkan Barang'),
             ),
@@ -78,8 +98,14 @@ class _ShoppingInputScreenState extends State {
                         final key = items.keys.elementAt(index);
                         final item = items[key];
                         return ListTile(
-                          title: Text(item!['name']!),
-                          subtitle: Text(item['type']!));
+                          title: Text(
+                            '${index + 1}. ${item!['name']!}',
+                            style: TextStyle(
+                              color: Colors.primaries[index % Colors.primaries.length], // Warna berubah berdasarkan indeks
+                            ),
+                          ),
+                          subtitle: Text(item['type']!),
+                        );
                       },
                     );
                   } else if (snapshot.hasError) {
