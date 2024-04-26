@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "673863646937",
+    "firebase_url": "https://cashierapp-20917-default-rtdb.firebaseio.com",
+    "project_id": "cashierapp-20917",
+    "storage_bucket": "cashierapp-20917.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:673863646937:android:f5581e166cd3e7ee8288c8",
+        "android_client_info": {
+          "package_name": "com.example.latihan_uts_pab"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB2cDmsH0Lsk8zzNO2YETD80eySPX604AI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:673863646937:android:df23f76cf17727e28288c8",
+        "android_client_info": {
+          "package_name": "com.example.latihanuts2"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB2cDmsH0Lsk8zzNO2YETD80eySPX604AI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
