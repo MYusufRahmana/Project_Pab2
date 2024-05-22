@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "332804507206",
+    "firebase_url": "https://dbnotes-86d2c-default-rtdb.firebaseio.com",
+    "project_id": "dbnotes-86d2c",
+    "storage_bucket": "dbnotes-86d2c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:332804507206:android:d7193dd4a86cbf2162ec47",
+        "android_client_info": {
+          "package_name": "com.example.notes_apps"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAFzbLyAFXJNPQNShcbHqi749jgOh9J-yo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

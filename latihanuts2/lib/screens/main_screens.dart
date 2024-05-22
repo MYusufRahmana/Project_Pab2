@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:latihanuts2/services/cashier_service.dart'; // Impor layanan ShoppingService
+import 'package:latihanuts2/services/cashier_service.dart'; 
 
 class ShoppingInputScreen extends StatefulWidget {
   const ShoppingInputScreen({Key? key}) : super(key: key);
@@ -11,11 +11,11 @@ class ShoppingInputScreen extends StatefulWidget {
 class _ShoppingInputScreenState extends State
  {
   final TextEditingController _itemNameController =
-      TextEditingController(); // Controller untuk nama barang
+      TextEditingController();
   final TextEditingController _itemTypeController =
-      TextEditingController(); // Controller untuk tipe barang
+      TextEditingController(); 
   final ShoppingService _shoppingService =
-      ShoppingService(); // Layanan ShoppingService
+      ShoppingService(); 
 
 // Method untuk menampilkan snackbar
   void _showSuccessMessage(BuildContext context) {
